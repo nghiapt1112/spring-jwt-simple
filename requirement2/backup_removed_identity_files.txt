@@ -1,0 +1,18 @@
+The following files were removed as part of the identity verification system simplification:
+
+1. src/main/java/com/digitalwallet/service/identity/BaseVerificationProvider.java
+2. src/main/java/com/digitalwallet/service/identity/StandardVerificationProvider.java
+3. src/main/java/com/digitalwallet/service/identity/EnhancedVerificationProvider.java
+4. src/main/java/com/digitalwallet/service/identity/BiometricVerificationProvider.java
+5. src/main/java/com/digitalwallet/service/identity/IdentityVerificationProvider.java
+6. src/main/java/com/digitalwallet/service/identity/VerificationProviderFactory.java
+7. src/main/java/com/digitalwallet/service/identity/VerificationComponents.java
+8. src/main/java/com/digitalwallet/service/identity/VerificationProviders.java
+9. src/main/java/com/digitalwallet/service/identity/IdentityVerificationService.java
+10. src/main/java/com/digitalwallet/service/identity/ApiCaller.java
+
+These files were replaced by:
+- src/main/java/com/digitalwallet/security/SimpleIdentityVerificationService.java
+- src/main/java/com/digitalwallet/security/VerificationLevel.java
+
+You can restore these files from version control if needed.

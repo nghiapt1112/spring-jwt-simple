@@ -1,0 +1,54 @@
+# Identity Verification Service Migration Guide
+
+## Overview
+This guide explains how to migrate from the previous complex identity verification implementation to the new simplified version.
+
+## Migration Steps
+
+### 1. Update Dependencies
+
+Replace any dependency injection of:
+```java
+@Autowired
+private IdentityVerificationService identityVerificationService;
+```
+
+With:
+```java
+@Autowired
+private SimpleIdentityVerificationService identityVerificationService;
+```
+
+### 2. Update Method Calls
+
+Replace any calls to:
+```java
+verificationResult = identityVerificationService.verifyIdentityForTransaction(user, transaction, VerificationLevel.HIGH);
+```
+
+With the new method signature:
+```java
+verificationResult = identityVerificationService.verifyIdentityForTransaction(user, transaction, VerificationLevel.HIGH);
+```
+
+Note: The method signature is the same, but you'll need to use the VerificationLevel enum from the new package:
+```java
+import com.digitalwallet.security.VerificationLevel;
+```
+
+### 3. Update Test Files
+
+Update any test files that reference the old implementation to use the new simplified service.
+
+## Benefits of Migration
+
+1. Simplified codebase with fewer classes
+2. More straightforward implementation
+3. Easier maintenance
+4. Improved testability
+5. Same functionality with less complexity
+
+## Troubleshooting
+
+If you encounter any issues during migration, refer to the backup_removed_identity_files.txt 
+which lists all the files that were removed as part of this simplification.

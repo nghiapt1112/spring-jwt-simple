@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: digital-wallet-test
+
+
+logging:
+  level:
+    com.digitalwallet: DEBUG
+    org.springframework: WARN

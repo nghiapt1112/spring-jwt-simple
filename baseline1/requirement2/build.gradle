@@ -1,0 +1,72 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.4'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.digitalwallet'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot Core
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor'
+	
+	// Spring Retry for resilient API calls
+	implementation 'org.springframework.retry:spring-retry'
+	implementation 'org.springframework:spring-aspects'
+	
+	// Lombok to reduce boilerplate code
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	// Jackson for JSON processing
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+	
+	// Bouncy Castle for enhanced cryptographic operations
+	implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+	
+	// Apache Commons for utility classes
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+	
+	// Logging
+	implementation 'org.slf4j:slf4j-api'
+	
+	// Testing
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mockito:mockito-core'
+	testImplementation 'org.mockito:mockito-junit-jupiter'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	// Security Testing
+	testImplementation 'org.owasp:dependency-check-gradle:7.4.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// Optional: Add a dependency check task to identify security vulnerabilities
+if (project.hasProperty('dependencyCheck')) {
+	apply plugin: 'org.owasp.dependencycheck'
+	
+	dependencyCheck {
+		failBuildOnCVSS = 7
+		formats = ['HTML', 'JSON']
+		outputDirectory = "${project.buildDir}/reports/dependency-check"
+		suppressionFile = "${project.projectDir}/config/dependency-check-suppressions.xml"
+	}
+}

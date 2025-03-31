@@ -1,0 +1,84 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.1'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+}
+
+group = 'com.digitalwallet'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starter
+    implementation 'org.springframework.boot:spring-boot-starter'
+    
+    // Spring Boot Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api'
+    
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
+    
+    // Mockito for mocking
+    testImplementation 'org.mockito:mockito-core:5.3.1'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.3.1'
+}
+
+// Configure testing
+test {
+    useJUnitPlatform {
+        // Optional: Exclude or include specific tests
+        // excludeTags 'slow'
+        // includeTags 'fast'
+    }
+//
+//    // Fail the build if no tests are run
+//    failFast = true
+//
+//    // Show test output
+//    testLogging {
+//        events 'passed', 'skipped', 'failed'
+//        showStandardErrors = true
+//        showStandardStreams = true
+//    }
+}
+
+// Task to run tests with more detailed logging
+//tasks.withType(Test) {
+//    maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+//
+//    doFirst {
+//        println "Running tests with ${maxParallelForks} parallel forks"
+//    }
+//}
+
+// Optional: Generate test coverage report
+//jacoco {
+//    toolVersion = "0.8.9"
+//}
+//
+//// Optional: Code quality checks
+//checkstyle {
+//    toolVersion = '10.3'
+//}

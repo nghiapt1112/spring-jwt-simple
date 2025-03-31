@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: digital-wallet
+
+logging:
+  level:
+    com.digitalwallet: INFO
+    org.springframework: WARN

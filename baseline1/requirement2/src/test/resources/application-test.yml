@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: digital-wallet-test
+
+app:
+  api:
+    verification-base-url: https://api.test.identity-verification-service.com
+    verification-api-key: test-api-key
+    verification-api-secret: test-api-secret
+    encryption-secret: test-encryption-secret
+    high-risk-threshold: 1000.00
+
+logging:
+  level:
+    com.digitalwallet: DEBUG
+    org.springframework: WARN

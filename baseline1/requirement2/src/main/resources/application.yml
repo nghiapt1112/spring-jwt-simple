@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: digital-wallet
+
+app:
+  api:
+    verification-base-url: https://api.identity-verification-service.com
+    verification-api-key: ${VERIFICATION_API_KEY:api-key-placeholder}
+    verification-api-secret: ${VERIFICATION_API_SECRET:api-secret-placeholder}
+    encryption-secret: ${ENCRYPTION_SECRET:encryption-secret-placeholder}
+    high-risk-threshold: 1000.00
+
+logging:
+  level:
+    com.digitalwallet: INFO
+    org.springframework: WARN
