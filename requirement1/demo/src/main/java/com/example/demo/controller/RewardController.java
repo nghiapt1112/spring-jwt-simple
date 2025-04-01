@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.PointTransaction;
-import com.example.demo.service.RewardService;
-import com.example.demo.dto.*;
+import com.example.demo.reward.dto.*;
+import com.example.demo.reward.model.PointTransaction;
+import com.example.demo.reward.service.RewardService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -99,23 +99,4 @@ public class RewardController {
         return ResponseEntity.ok(new TransactionsResponse(userId, transactionsList));
     }
 
-    /**
-     * Handle case where user does not exist
-     */
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Map<String, String>> handleUserNotFound(IllegalArgumentException ex) {
-        return ResponseEntity
-            .status(HttpStatus.NOT_FOUND)
-            .body(Map.of("message", ex.getMessage()));
-    }
-    
-    /**
-     * Handle security exceptions
-     */
-    @ExceptionHandler(SecurityException.class)
-    public ResponseEntity<Map<String, String>> handleSecurityException(SecurityException ex) {
-        return ResponseEntity
-            .status(HttpStatus.FORBIDDEN)
-            .body(Map.of("message", "Access denied"));
-    }
 }

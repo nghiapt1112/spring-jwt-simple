@@ -6,8 +6,8 @@ import com.example.demo.infrastructure.event.EventPublisher;
 import com.example.demo.infrastructure.event.EventTypes;
 import com.example.demo.infrastructure.event.reward.RewardEventData;
 import com.example.demo.infrastructure.exception.InsufficientPointsException;
-import com.example.demo.model.UserRewardPoints;
-import com.example.demo.repository.UserRewardPointsRepository;
+import com.example.demo.reward.model.UserRewardPoints;
+import com.example.demo.reward.repository.UserRewardPointsRepository;
 
 /**
  * Command to redeem reward points

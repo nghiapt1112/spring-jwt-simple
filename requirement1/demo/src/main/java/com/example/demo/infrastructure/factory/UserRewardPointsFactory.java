@@ -1,6 +1,6 @@
 package com.example.demo.infrastructure.factory;
 
-import com.example.demo.model.UserRewardPoints;
+import com.example.demo.reward.model.UserRewardPoints;
 
 /**
  * Factory interface for creating UserRewardPoints objects

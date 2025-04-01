@@ -1,6 +1,6 @@
 package com.example.demo.infrastructure.event.reward;
 
-import com.example.demo.model.UserRewardPoints;
+import com.example.demo.reward.model.UserRewardPoints;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

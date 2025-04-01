@@ -5,9 +5,9 @@ import com.example.demo.infrastructure.command.CommandTypes;
 import com.example.demo.infrastructure.event.EventPublisher;
 import com.example.demo.infrastructure.event.EventTypes;
 import com.example.demo.infrastructure.event.reward.RewardEventData;
-import com.example.demo.model.UserRewardPoints;
-import com.example.demo.repository.UserRewardPointsRepository;
-import com.example.demo.strategy.PointCalculationStrategy;
+import com.example.demo.reward.model.UserRewardPoints;
+import com.example.demo.reward.repository.UserRewardPointsRepository;
+import com.example.demo.reward.strategy.PointCalculationStrategy;
 
 /**
  * Command to earn reward points

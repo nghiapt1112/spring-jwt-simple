@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.LoginRequest;
+import com.example.demo.reward.dto.LoginRequest;
 import com.example.demo.infrastructure.security.JwtService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

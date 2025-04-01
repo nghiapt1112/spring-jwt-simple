@@ -1,8 +1,8 @@
 package com.example.demo.infrastructure;
 
-import com.example.demo.strategy.PointCalculationStrategy;
-import com.example.demo.strategy.PremiumPointCalculationStrategy;
-import com.example.demo.strategy.StandardPointCalculationStrategy;
+import com.example.demo.reward.strategy.PointCalculationStrategy;
+import com.example.demo.reward.strategy.PremiumPointCalculationStrategy;
+import com.example.demo.reward.strategy.StandardPointCalculationStrategy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
